@@ -20,7 +20,6 @@ $statements = [
     "CREATE TABLE IF NOT EXISTS `hw3`.`Reviews` (id INT NOT NULL AUTO_INCREMENT, `title` VARCHAR(50) NOT NULL, `body` LONGTEXT NOT NULL, `genreId` INT NOT NULL, `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB"
 ];
 
-run each
 foreach($statements as $statement) {
     print("Statement Executing: $statement ;\n");
     $res = \mysqli_query($mysqli, $statement);
