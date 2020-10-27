@@ -1,24 +1,33 @@
 <?php
 
 namespace cs174\hw3\controllers;
-require_once('./src/views/helpers/viewHelper.php');
-require_once('./src/models/Genre.php');
+require_once('./src/views/layouts/htmlLayout.php');
 
 class PageController {
-    private $viewHelper;
+    private $htmlLayout;
 
     public function render() {
-        $this->viewHelper = new \cs174\hw3\views\helpers\viewHelper();
+        $this->htmlLayout = new \cs174\hw3\views\layouts\htmlLayout();
         if (isset($_GET['a'])) {
             $action = $_GET['a'];
             switch($action) {
-                default:
-                    $this->viewHelper->display('/../homePage.php');
+                case "genrePage":
+                    $this->htmlLayout->htmlLayout('/../genrePage.php');    
+                    break;
+                case "addGenrePage":
+                    $this->htmlLayout->htmlLayout('/../addGenrePage.php');
+                    break;
+                case "reviewPage":
+                    $this->htmlLayout->htmlLayout('/../reviewPage.php');  
+                    break;
+                case "addReviewPage":
+                    $this->htmlLayout->htmlLayout('/../addReviewPage.php');  
+                    break;
             }
         }
 
         else {
-            $this->viewHelper->display('/../homePage.php');
+            $this->htmlLayout->htmlLayout('/../homePage.php');
         }
     }
 }

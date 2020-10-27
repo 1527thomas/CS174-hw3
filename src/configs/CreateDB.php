@@ -12,12 +12,12 @@ else {
     echo 'Connection Success \n';
 }
 
-//statements to create database hw3, create the genre and review tables
+// statements to create database hw3, create the genre and review tables
 $statements = [
-    "CREATE DATABASE IF NOT EXISTS `hw3`",
-    "USE `hw3`",
-    "CREATE TABLE IF NOT EXISTS `hw3`.`Genres` (id INT NOT NULL AUTO_INCREMENT, `name` VARCHAR(50) NOT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB",
-    "CREATE TABLE IF NOT EXISTS `hw3`.`Reviews` (id INT NOT NULL AUTO_INCREMENT, `title` VARCHAR(50) NOT NULL, `body` LONGTEXT NOT NULL, `genreId` INT NOT NULL, `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB"
+    "CREATE DATABASE IF NOT EXISTS 'hw3'",
+    "USE 'hw3'",
+    "CREATE TABLE IF NOT EXISTS 'hw3'.'Genres' (id INT NOT NULL AUTO_INCREMENT, 'name' VARCHAR(50) NOT NULL, PRIMARY KEY ('id')) ENGINE = InnoDB",
+    "CREATE TABLE IF NOT EXISTS 'hw3'.'Reviews' (id INT NOT NULL AUTO_INCREMENT, 'title' VARCHAR(50) NOT NULL, 'body' LONGTEXT NOT NULL, 'genreId' INT NOT NULL, 'date' DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY ('id')) ENGINE = InnoDB"
 ];
 
 foreach($statements as $statement) {
