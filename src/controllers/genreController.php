@@ -14,14 +14,14 @@ class GenreController {
     public function genreController(){
         if (isset($_GET['b'])) {
             $this->model = new M\Model();
-            $db = $this->model->connect();
+            $mysqli = $this->model->connect();
             $action = $_GET['b'];
             switch($action) {
                 case "addGenre":
                     if (isset($_GET['genreName'])) {
                         $name = $_GET['genreName'];
                         $this->genreModel = new M\Genre();
-                        $this->genreModel->addGenre($db, $name);  
+                        $this->genreModel->addGenre($mysqli, $name);  
                     break;
                     }
             }
