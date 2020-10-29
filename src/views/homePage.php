@@ -12,14 +12,22 @@ class HomePage {
         <li><a href="index.php?a=addGenrePage">[New Genre]</a></li>
         <?php
             foreach($genres as $genre) {
-                ?><li><a href="index.php?a=genrePage&genre=<?=$genre?>"><?=$genre?></a></li><?php 
+                ?>
+                    <li>
+                        <a href="index.php?a=genrePage&genre=<?=$genre?>"><?=$genre?></a>
+                    </li> 
+                <?php 
             }
         ?></ul>
         <h2 style="margin-bottom:1px; padding-bottom: 1px;"> Reviews </h2>
         <ul>
         <?php
             foreach($reviews as $title => $date) {
-                ?><li><a href="index.php?a=reviewPage&movie=<?=$title?>"><?=$title?></a> <?=$date?></li><?php 
+                ?>
+                <li>
+                    <a href="index.php?a=reviewPage&movie=<?=$title?>"><?=$title?></a> <?=$date?>
+                </li>
+                <?php 
             }
         ?></ul>
         </div>

@@ -4,7 +4,7 @@ namespace cs174\hw3\models;
 class Genre {
     public function addGenre($mysqli, $name){
 
-        $query = "INSERT INTO genres (name) VALUES ('$name')\n";
+        $query = "INSERT IGNORE INTO genres (name) VALUES ('$name')";
         $mysqli->query($query);
         echo $mysqli->error;
     }
@@ -39,5 +39,11 @@ class Genre {
         $genre = $row['name'];
         $res->free();
         return $genre;
+    }
+
+    public function deleteGenre($mysqli, $genre) {
+        $query = "DELETE FROM genres WHERE name = '$genre'";
+        $res = $mysqli->query($query);
+        echo $mysqli->error;
     }
 }

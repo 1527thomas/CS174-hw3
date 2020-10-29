@@ -28,7 +28,13 @@ class GenreController {
                         $this->genreModel->addGenre($mysqli, $name); 
                     }
                     break;
-                    
+                case "deleteGenre":    
+                    if(isset($_GET['genre'])) {
+                        $genre = $_GET['genre'];
+                        $this->genreModel = new M\Genre();
+                        $this->genreModel->deleteGenre($mysqli, $genre);
+                    }
+                    break;
             }
         }
     }

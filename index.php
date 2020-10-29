@@ -1,6 +1,6 @@
 <?php
 
-// require_once('./src/configs/CreateDB.php');
+require_once('./src/configs/CreateDB.php');
 include('./src/controllers/pageController.php');
 include('./src/controllers/genreController.php');
 include('./src/controllers/reviewController.php');

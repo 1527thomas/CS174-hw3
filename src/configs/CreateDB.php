@@ -8,9 +8,6 @@ $mysqli = new \mysqli("127.0.0.1:" . \cs174\hw3\configs\DB_PORT, \cs174\hw3\conf
 if($mysqli->connect_errno) {
     print("Connection Error: " . ($mysqli->connect_errno) . "\n");
 }
-else {
-    print("Connection Success \n");
-}
 
 // statements to create database hw3, create the genre and review tables
 $statements = [
@@ -21,8 +18,6 @@ $statements = [
 ];
 
 foreach($statements as $statement) {
-    printf("Statement Executing: $statement \n");
     $res = $mysqli->query($statement);
-    print("Result of statement: $res \n");
 }
 $mysqli->close();

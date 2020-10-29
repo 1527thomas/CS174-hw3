@@ -11,7 +11,11 @@ class GenrePage {
         <ul>
         <?php
             foreach($genres as $genre) {
-                ?><li><a href="index.php?a=genrePage&genre=<?=$genre?>"><?=$genre?></a></li><?php 
+                ?>
+                <li>
+                    <a href="index.php?a=genrePage&genre=<?=$genre?>"><?=$genre?></a>
+                </li>
+                <?php 
             }
         ?></ul>
         <h2 style="margin-bottom:1px; padding-bottom: 1px;"> Reviews </h2>
@@ -19,7 +23,12 @@ class GenrePage {
         <li><a href="index.php?a=addReviewPage&genre=<?=$_REQUEST['genre']?>">[Add Review]</a></li>
         <?php
             foreach($reviews as $title => $date) {
-                ?><li><a href="index.php?a=reviewPage&movie=<?=$title?>"><?=$title?></a> <?=$date?></li><?php 
+                ?>
+                <li>
+                    <a href="index.php?a=reviewPage&movie=<?=$title?>"><?=$title?></a> <?=$date?>
+                    <a href="index.php?a=genrePage&genre=<?=$_REQUEST['genre']?>&b=deleteReview&title=<?=$title?>">[-]</a>
+                </li>
+                <?php 
             }
         ?></ul>
         </div>

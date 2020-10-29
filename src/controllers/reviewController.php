@@ -28,17 +28,13 @@ class ReviewController {
                         $genreId = $this->genreModel->getId($mysqli, $name);
                         $this->reviewModel->addReview($mysqli, $title, $post, $genreId);
                     }
-
-
-                    // if (isset($_GET['title']) . (isset($_GET['post']) . (isset($_GET['genre'])))) {
-                    //     $title = $_GET['title'];
-                    //     $post = $_GET['post'];
-                    //     $name = $_GET['genre'];
-                    //     $this->genreModel = new M\Genre();
-                    //     $this->reviewModel = new M\Review();
-                    //     $genreId = $this->genreModel->getId($mysqli, $name);
-                    //     $this->reviewModel->addReview($mysqli, $title, $post, $genreId);
-                    // }    
+                    break;
+                case "deleteReview":    
+                    if(isset($_GET['title'])) {
+                        $title = $_GET['title'];
+                        $this->reviewModel = new M\Review();
+                        $this->reviewModel->deleteReview($mysqli, $title);
+                    }
                     break;
             }
             
