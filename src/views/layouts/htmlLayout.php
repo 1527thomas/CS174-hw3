@@ -10,7 +10,7 @@ class htmlLayout{
             <head><title>Movie Reviews</title></head>
             <body>
             <?php
-            include_once dirname(__FILE__) . $htmlPage;
+            $htmlPage;
             ?>
             </body>
             

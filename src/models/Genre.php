@@ -5,14 +5,12 @@ class Genre {
     public function addGenre($mysqli, $name){
 
         $query = "INSERT INTO genres (name) VALUES ('$name')\n";
-        echo $query;
         $mysqli->query($query);
         echo $mysqli->error;
     }
 
     public function getId($mysqli, $name) {
         $query = "SELECT id FROM genres WHERE name='$name'";
-        
         $res = $mysqli->query($query);
         $row = $res->fetch_assoc();
         $id = $row['id'];
@@ -20,21 +18,26 @@ class Genre {
         return $id;
     }
 
-    public function getGenre($mysqli){
-        $query = "SELECT name FROM genres";
+    public function getGenres($mysqli){
+        $query = "SELECT name FROM genres ORDER BY name";
         $res = $mysqli->query($query);
         echo $mysqli->error;
 
-        while($row = $res->fetch_assoc()) {
-            //returns all names from the genre table
-            // printf("%s \n", $row["name"]);
+        $genreArray = Array();
+        
+        while($row = $res->fetch_array()) {
+            $genreArray[] = $row['name'];
         }
-
         $res->free();
+        return $genreArray;
     }
 
-    //get reviews for a specific genre
-    public function getReviews($mysqli) {
-        $query = "SELECT * FROM reviews WHERE";
+    public function getGenreFromId($mysqli, $id) {
+        $query = "SELECT name FROM genres WHERE id = '$id'";
+        $res = $mysqli->query($query);
+        $row = $res->fetch_assoc();
+        $genre = $row['name'];
+        $res->free();
+        return $genre;
     }
 }
