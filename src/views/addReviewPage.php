@@ -5,7 +5,8 @@ function renderAddReview() {
     ?>
     <h1><a href="index.php">Movie Reviews/<?=$_REQUEST['genre']?></a></h1>
     <h2>Add Review</h2>
-    <form>
+    <form action="index.php">
+        <input type="hidden" name="b" value="addReview"/>
         <div>
             <label for='post-title'>Title</label>:
             <input id='post-title' name="title" type="text" />

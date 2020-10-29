@@ -7,5 +7,6 @@ include('./src/controllers/genreController.php');
 $pageController = new cs174\hw3\controllers\pageController();
 $pageController->render();
 
+
 $genreController = new cs174\hw3\controllers\genreController();
 $genreController->genreController();

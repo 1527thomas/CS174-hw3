@@ -9,6 +9,7 @@ use cs174\hw3\models as M;
 
 class GenreController {
     private $genreModel;
+
     private $model;
 
     public function genreController(){
@@ -23,6 +24,31 @@ class GenreController {
                         $this->genreModel = new M\Genre();
                         $this->genreModel->addGenre($mysqli, $name);  
                     break;
+                    }
+                case "addReview":
+                    if (isset($_GET['title']) . (isset($_GET['post']))) {
+                        $title = $_GET['title'];
+                        $post = $_GET['post'];
+                        $this->genreModel = new M\Genre();
+                        $this->reviewModel = new M\Review();
+                        $genreId = $this->genreModel->getId($mysqli, $name);
+                        $this->reviewModel->addReview($title, $post, $name);
+                        
+                    }    
+            }
+        }
+        else if (isset($_GET['a'])) {
+            $this->model = new M\Model();
+            $mysqli = $this->model->connect();
+            $action = $_GET['a'];
+            switch($action) {
+                case "genrePage":
+                    if (isset($_GET['genre'])) {
+                        $name = $_GET['genre'];
+                        $this->genreModel = new M\Genre();
+                        $this->genreModel->getGenre($mysqli);
+                        $id = $this->genreModel->getId($mysqli, $name);
+                        
                     }
             }
         }
